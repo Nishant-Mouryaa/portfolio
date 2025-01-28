@@ -1,0 +1,45 @@
+/* Projects.css */
+
+.projects {
+    background: #ffffff;
+    padding: 4rem 1rem;
+}
+
+    .projects h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+/* A simple grid for project cards */
+.projects-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Adjust the columns for responsiveness */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Individual project card */
+.project-card {
+    background: #fafafa;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1rem;
+    text-align: center;
+    transition: box-shadow 0.2s ease;
+}
+
+    .project-card h3 {
+        margin-bottom: 0.75rem;
+    }
+
+    .project-card a {
+        display: inline-block;
+        margin-top: 0.5rem;
+        color: #1565c0;
+    }
+
+    .project-card:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }

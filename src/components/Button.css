@@ -1,0 +1,53 @@
+/* Button.css */
+
+/* Container styling for the Framer Motion wrapper */
+.ButtonComponent {
+    display: inline-block;
+    margin: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+    /* Button base style: transparent background, black border, black text */
+    .ButtonComponent .btn {
+        background-color: transparent !important;
+        border: 2px solid #000 !important;
+        border-radius: 5px;
+        padding: 10px;
+        color: #000 !important;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        /* Hover + Focus: Fill with black background and white text */
+        .ButtonComponent .btn:hover:not(:disabled),
+        .ButtonComponent .btn:focus {
+            background-color: #000 !important;
+            color: #fff !important;
+            box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.2);
+        }
+
+        /* Active state: Slightly darker or simply no changes if you prefer */
+        .ButtonComponent .btn:active {
+            background-color: #2c2c2c !important;
+        }
+
+        /* Disabled state: Lower opacity, no hover effects */
+        .ButtonComponent .btn:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+    /* Spinner styling (if used) */
+    .ButtonComponent .spinner-border {
+        margin-right: 0.5rem;
+    }
+
+    /* If you have icons or other elements, you can style them here */
+    .ButtonComponent .icon-right {
+        margin-left: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+    }

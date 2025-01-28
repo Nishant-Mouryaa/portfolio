@@ -1,0 +1,40 @@
+/* Contact.css */
+
+.contact {
+    background: #ffffff;
+    padding: 4rem 1rem;
+}
+
+    .contact h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+/* Contact form container */
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+    .contact-form label {
+        margin-top: 1rem;
+        font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        margin-top: 0.25rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* The button style can be inherited from global or custom for the form */
+    .contact-form button {
+        margin-top: 1.5rem;
+        background-color: #1565c0;
+        color: #fff;
+    }
