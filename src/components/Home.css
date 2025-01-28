@@ -7,7 +7,7 @@
     justify-content: center;
     min-height: 85vh;
     /* Subtle background gradient */
-/*    background: linear-gradient(135deg, #000 20%, #333 80%);*/
+    background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
     padding: 2rem 1rem;
     overflow: hidden; /* Helps if you have elements animating in */
 }

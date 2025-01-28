@@ -1,21 +1,151 @@
 /* About.css */
 
-.about {
-    background: #ffffff;
+/* Overall Section */
+.about-section {
+    background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
     padding: 4rem 1rem;
+    display: flex;
+    justify-content: center;
 }
 
-    .about h2 {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-.about-content {
-    max-width: 800px;
+/* Container */
+.about-container {
+    display: flex;
+    max-width: 1200px;
+    width: 90%;
     margin: 0 auto;
-    line-height: 1.7;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* allow wrapping on small screens */
 }
 
-    .about-content p {
-        margin-bottom: 1rem;
+/* Left Side */
+.about-left {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 2rem;
+}
+
+    .about-left h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: #333;
     }
+
+    .about-left h3 {
+        font-size: 1.25rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-left p {
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        color: #555;
+    }
+
+/* Skills Container */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+/* Skill Card */
+.skill-card {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #333;
+    white-space: nowrap;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* So the highlight bar doesn't overflow */
+    cursor: default;
+}
+
+    /* Optional skill icon style (uncomment if you use icons)
+.skill-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+*/
+
+    /* Highlight bar animation */
+    .skill-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 4px;
+        background: linear-gradient(to right, #1565c0, #0d47a1);
+        transition: width 0.3s ease;
+    }
+
+    /* On hover, the skill-card lifts and the bar extends fully */
+    .skill-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
+
+        .skill-card:hover::before {
+            width: 100%;
+        }
+
+/* Right Side (Profile Image) */
+.about-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.profile-pic {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Fade-in animation for sections */
+.fadeIn {
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards ease-in-out;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-left {
+        margin-right: 0;
+    }
+
+    .about-right {
+        margin-top: 2rem;
+    }
+}

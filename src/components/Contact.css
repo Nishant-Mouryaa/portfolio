@@ -1,40 +1,203 @@
 /* Contact.css */
 
-.contact {
-    background: #ffffff;
+/* Overall Section with a subtle background */
+.contact-section {
+    background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
     padding: 4rem 1rem;
+    display: flex;
+    justify-content: center;
 }
 
-    .contact h2 {
-        text-align: center;
+/* Container for two columns (info + form) */
+.contact-container {
+    display: flex;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap; /* wrap for smaller screens */
+    /* fadeInUp animation start */
+    opacity: 0;
+    animation: fadeInUp 1s forwards ease-in-out;
+}
+
+/* Left Column: Contact Info */
+.contact-info {
+    flex: 1;
+    min-width: 280px;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+}
+
+    .contact-info h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.6;
         margin-bottom: 2rem;
     }
 
-/* Contact form container */
-.contact-form {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+/* Info box with subtle shadow */
+.info-details {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-    .contact-form label {
-        margin-top: 1rem;
-        font-weight: bold;
+.info-item {
+    display: flex;
+    margin-bottom: 0.75rem;
+}
+
+.info-label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    color: #333;
+}
+
+.info-value {
+    color: #555;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Right Column: Contact Form */
+.contact-form-wrapper {
+    flex: 1;
+    min-width: 280px;
+    margin-bottom: 2rem;
+}
+
+    .contact-form-wrapper h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: #333;
+        text-align: left;
     }
 
-    .contact-form input,
-    .contact-form textarea {
+/* Form with glassmorphism effect */
+.contact-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    border-radius: 12px;
+    /* Glassmorphism background */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Floating Label Groups */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+    .form-group input,
+    .form-group textarea {
         width: 100%;
-        margin-top: 0.25rem;
-        padding: 0.5rem;
-        border: 1px solid #ccc;
+        border: 1px solid #ddd;
+        padding: 0.75rem;
         border-radius: 4px;
+        font-size: 1rem;
+        outline: none;
+        background: transparent;
+        color: #333;
+        transition: border-color 0.3s ease;
+        /* Placeholders remain hidden for the floating label approach */
     }
 
-    /* The button style can be inherited from global or custom for the form */
-    .contact-form button {
-        margin-top: 1.5rem;
-        background-color: #1565c0;
-        color: #fff;
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: transparent;
+        }
+
+    /* Label is positioned absolutely for the floating effect */
+    .form-group label {
+        position: absolute;
+        pointer-events: none;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: transparent;
+        padding: 0 0.25rem;
+        color: #666;
+        transition: 0.2s ease-in-out;
     }
+
+    /* Focus & "has text" states for floating label */
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: #1565c0;
+    }
+
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: 0;
+            transform: translateY(-60%) scale(0.9);
+            color: #1565c0;
+            background: #f3f4f6; /* optional color behind the text to make it visible */
+            border-radius: 4px;
+        }
+
+/* Button */
+.form-button {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: #1565c0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .form-button:hover {
+        background-color: #0d47a1;
+        transform: translateY(-2px);
+    }
+
+/* Keyframes for fadeInUp animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive stacking for smaller screens */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        margin-right: 0;
+    }
+
+    .contact-form-wrapper {
+        margin-top: 2rem;
+    }
+
+    .contact-form {
+        margin-top: 1rem;
+    }
+}
